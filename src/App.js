@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 
-function App() {
+import './App.css';
+import RegistrationForm from './register.js';
+import Login from './login.js';
+import 'antd/dist/antd.css'
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <h1 className="Nav-head">React:Form</h1>
+        <nav>
+          <div className="Navbar">
+            <Link className="Links-nav" to="/login">LOGIN</Link>
+            <Link className="Links-nav" to="/reg">REGISTER</Link>
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/reg" element={<RegistrationForm />}/>
+          <Route
+              path="*"
+              element={<Navigate to="/login" replace />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
-export default App;
