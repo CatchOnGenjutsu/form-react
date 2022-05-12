@@ -19,17 +19,13 @@ export default function App() {
         <h1 className="Nav-head">React:Form</h1>
         <nav>
           <div className="Navbar">
-            <Link className="Links-nav" to="/login">LOGIN</Link>
-            <Link className="Links-nav" to="/reg">REGISTER</Link>
+            <Link className="Links-nav" to="/form-react/">LOGIN</Link>
+            <Link className="Links-nav" to="/form-react/reg">REGISTER</Link>
           </div>
         </nav>
         <Routes>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/reg" element={<RegistrationForm />}/>
-          <Route
-              path="*"
-              element={<Navigate to="/login" replace />}
-          />
+          <Route path="/form-react/" element={<Login />}/>
+          <Route path="/form-react/reg" element={<RegistrationForm />}/>
         </Routes>
       </div>
     </Router>
